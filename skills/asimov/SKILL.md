@@ -63,3 +63,9 @@ $ asimov list -M chromium chrome://bookmarks   # same, with the module pinned ex
 ```
 
 URLs resolve to modules automatically. The `resolve` check and `-M` are optional.
+
+## Links
+
+- <https://github.com/asimov-platform>
+- <https://github.com/asimov-modules>
+- <https://github.com/asimov-systems>
