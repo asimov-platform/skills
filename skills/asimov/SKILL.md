@@ -1,12 +1,12 @@
 ---
 name: asimov
-description: Use the ASIMOV CLI and its modules to access the user's knowledge, including mail, messages, documents, and public data sources. Use when the user mentions ASIMOV or wants data from their own sources in the task.
+description: Use the ASIMOV CLI to join the user's personal knowledge (such as mail, messages, documents) and public data in one knowledge base. Use when the user mentions ASIMOV, wants their own data in the task, or needs a data source an ASIMOV module handles.
 compatibility: Requires shell and network access
 ---
 
 # ASIMOV
 
-ASIMOV fetches knowledge from the user's data sources, personal and public, through installable modules, and builds a graph-based knowledge base on top. `asimov help` and each subcommand's `--help` are the authority on syntax.
+ASIMOV is a personal intelligence platform: installable modules turn the user's data sources, personal and public, into a connected knowledge graph, intelligence that knows what it knows. `asimov help` and each subcommand's `--help` are the authority on syntax.
 
 ## Setup
 
@@ -30,7 +30,7 @@ asimov module resolve <url>       # which enabled module handles this source
 asimov module uninstall <name>
 ```
 
-`inspect` prints a hint for anything that still needs doing. Configuration lives under `asimov module config` (`show`, `get`, `set`, `setup`, `unset`). For secret-bearing or interactive setup, prefer asking the user to run `asimov module config setup <name>` in their own terminal rather than handling secrets yourself.
+`inspect` prints a hint for anything that still needs doing. Configuration lives under `asimov module config` (`show`, `get`, `set`, `setup`, `unset`). For secrets or interactive setup prefer asking the user to run `asimov module config setup <name>` in their own terminal rather than handling secrets yourself.
 
 ## Retrieve
 
@@ -66,6 +66,6 @@ URLs resolve to modules automatically. The `resolve` check and `-M` are optional
 
 ## Links
 
-- <https://github.com/asimov-platform>
-- <https://github.com/asimov-modules>
-- <https://github.com/asimov-systems>
+- The platform, its CLI, SDK, and specifications: <https://github.com/asimov-platform>
+- The modules: <https://github.com/asimov-modules>
+- The company: <https://github.com/asimov-systems>
