@@ -1,6 +1,6 @@
 ---
 name: asimov
-description: Use the ASIMOV CLI and its modules to access the user's personal knowledge such as mail, messages, documents, or public data sources. Use when the user mentions ASIMOV or wants data from their own sources in the task.
+description: Use the ASIMOV CLI and its modules to access the user's knowledge, including mail, messages, documents, and public data sources. Use when the user mentions ASIMOV or wants data from their own sources in the task.
 compatibility: Requires shell and network access
 ---
 
@@ -14,7 +14,7 @@ ASIMOV fetches knowledge from the user's data sources, personal and public, thro
 asimov --version
 ```
 
-If missing, install per <https://github.com/asimov-platform/asimov-cli#installation> — ask the user before installing.
+If missing, ask for the user's approval, then follow <https://github.com/asimov-platform/asimov-cli#installation>.
 
 ## Modules
 
@@ -30,7 +30,7 @@ asimov module resolve <url>       # which enabled module handles this source
 asimov module uninstall <name>
 ```
 
-`inspect` prints a hint for anything that still needs doing. Configuration lives under `asimov module config` (`show`, `get`, `set`, `setup`, `unset`). For secret-bearing or interactive setup, prefer asking the user to run `asimov module config setup <name>` in their own terminal and report back.
+`inspect` prints a hint for anything that still needs doing. Configuration lives under `asimov module config` (`show`, `get`, `set`, `setup`, `unset`). For secret-bearing or interactive setup, prefer asking the user to run `asimov module config setup <name>` in their own terminal rather than handling secrets yourself.
 
 ## Retrieve
 
@@ -42,3 +42,24 @@ A module's programs (listed by `inspect`) name its operations:
 | `*-fetcher`   | `asimov fetch` |
 | `*-reader`    | `asimov read`  |
 | `*-prompter`  | `asimov ask`   |
+
+## Example
+
+The user wants their browser bookmarks in context:
+
+```console
+$ asimov module search bookmarks
+chromium  Chromium (and Brave, Google Chrome, Arc) bookmark import.
+
+$ asimov module install chromium   # auto-enables when there is nothing to configure
+
+$ asimov module resolve chrome://bookmarks
+chromium
+
+$ asimov list chrome://bookmarks   # also chromium://, brave://, arc://, …
+{"@context":{…},"items":[{"@id":"urn:uuid:","@type":"know:Bookmark","created":"2025-09-27T04:30:00.000000Z","title":"ASIMOV Platform · GitHub","link":"https://github.com/asimov-platform"},…]}
+
+$ asimov list -M chromium chrome://bookmarks   # same, with the module pinned explicitly
+```
+
+URLs resolve to modules automatically. The `resolve` check and `-M` are optional.
