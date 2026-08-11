@@ -36,12 +36,12 @@ asimov module uninstall <name>
 
 A module's programs (listed by `inspect`) name its operations:
 
-| Program       | Command        |
-| ------------- | -------------- |
-| `*-cataloger` | `asimov list`  |
-| `*-fetcher`   | `asimov fetch` |
-| `*-reader`    | `asimov read`  |
-| `*-prompter`  | `asimov ask`   |
+| Program       | Command        | Function                                                            |
+| ------------- | -------------- | ------------------------------------------------------------------- |
+| `*-cataloger` | `asimov list`  | Enumerates the resources a source URL contains (mailbox, feed, ...) |
+| `*-fetcher`   | `asimov fetch` | Retrieves a single resource by URL                                  |
+| `*-reader`    | `asimov read`  | Imports data from a local file or standard input                    |
+| `*-prompter`  | `asimov ask`   | Sends a prompt to the model provider the module wraps               |
 
 ## Example
 
