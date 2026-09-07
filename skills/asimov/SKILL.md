@@ -59,7 +59,7 @@ chromium
 $ asimov list chrome://bookmarks   # also chromium://, brave://, arc://, …
 {"@context":{…},"items":[{"@id":"urn:uuid:","@type":"know:Bookmark","created":"2025-09-27T04:30:00.000000Z","title":"ASIMOV Platform · GitHub","link":"https://github.com/asimov-platform"},…]}
 
-$ asimov list -M chromium chrome://bookmarks   # same, with the module pinned explicitly
+$ asimov list --module chromium chrome://bookmarks   # same, with the module pinned explicitly
 ```
 
 URLs resolve to modules automatically. The `resolve` check and `-M` are optional.
